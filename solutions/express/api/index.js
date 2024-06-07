@@ -1,15 +1,20 @@
 require('dotenv').config();
 
-const express = require('express');
+import express from 'express';
 const app = express();
-const { sql } = require('@vercel/postgres');
+import { sql } from '@vercel/postgres';
 
 const bodyParser = require('body-parser');
 const path = require('path');
 
 // Create application/x-www-form-urlencoded parser
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
-
+app.get('/', (req, res) => {
+    res.send('Hey this is my API running 🥳')
+  });
+  app.get('/api', (req, res) => {
+    res.send('Hey this  🥳')
+  });
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
